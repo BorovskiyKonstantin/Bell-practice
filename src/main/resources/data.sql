@@ -270,7 +270,7 @@ INSERT INTO Document_Type (doc_code, doc_name, version) VALUES
 
 -- Одна тестовая организация
 INSERT INTO Organization (id, name, full_name, inn, kpp, address, phone, is_active, version) VALUES
-(1, 'OrgA', 'ООО "OrgA"', 9999999999, 9999999999, 'address', '87774445500', true, 0);
+(1, 'OrgA', 'ООО "OrgA"', '1234567890', '123456789', 'address', '87774445500', true, 0);
 
 -- По два офиса для каждой организации
 INSERT INTO Office (id, org_id, name, address, phone, is_active, version) VALUES
