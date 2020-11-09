@@ -79,6 +79,5 @@ ALTER TABLE User ADD FOREIGN KEY (office_id) REFERENCES Office (id);
 CREATE INDEX IX_User_Citizenship_Id ON User (citizenship_id);
 ALTER TABLE User ADD FOREIGN KEY (citizenship_id) REFERENCES Citizenship (id);
 
--- Индекс и внешний ключ для связи Document 1->1 User
-CREATE INDEX IX_Document_User_Id ON Document (user_id);
+-- Внешний ключ для связи Document 1->1 User
 ALTER TABLE Document ADD FOREIGN KEY (user_id) REFERENCES User (id);
