@@ -3,11 +3,11 @@ CREATE TABLE IF NOT EXISTS Organization (
   id                INTEGER                        COMMENT 'Уникальный идентификатор'   PRIMARY KEY AUTO_INCREMENT,
   name              VARCHAR(255) NOT NULL UNIQUE   COMMENT 'Название организации',
   full_name         VARCHAR(255) NOT NULL UNIQUE   COMMENT 'Полное название организации',
-  inn               varchar(10)  NOT NULL UNIQUE   COMMENT 'ИНН организации',
-  kpp               varchar(9)   NOT NULL UNIQUE   COMMENT 'КПП организации',
+  inn               VARCHAR(10)  NOT NULL UNIQUE   COMMENT 'ИНН организации',
+  kpp               VARCHAR(9)   NOT NULL UNIQUE   COMMENT 'КПП организации',
   address           VARCHAR(255) NOT NULL          COMMENT 'Адрес организации',
   phone             VARCHAR(20)  NOT NULL          COMMENT 'Телефон организации',
-  is_active         BOOLEAN                        COMMENT 'Активность',
+  is_active         BOOLEAN      NOT NULL          COMMENT 'Активность',
   version           INTEGER      NOT NULL          COMMENT 'Служебное поле hibernate'
 );
 COMMENT ON TABLE Organization IS 'Организация';
@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS Office (
   org_id            INTEGER      NOT NULL           COMMENT 'Уникальный идентификатор организации',
   name              VARCHAR(255) NOT NULL           COMMENT 'Название офиса',
   address           VARCHAR(255) NOT NULL           COMMENT 'Адрес офиса',
-  phone             VARCHAR(20)                     COMMENT 'Телефон офиса',
+  phone             VARCHAR(20)  NOT NULL           COMMENT 'Телефон офиса',
   is_active         BOOLEAN      NOT NULL           COMMENT 'Активность',
   version           INTEGER      NOT NULL           COMMENT 'Служебное поле hibernate'
 );
@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS Document_Type (
 COMMENT ON TABLE Document_Type IS 'Тип документа';
 
 CREATE TABLE IF NOT EXISTS Document (
-  id                INTEGER                         COMMENT 'Уникальный идентификатор'  PRIMARY KEY AUTO_INCREMENT,
+  user_id           INTEGER                         COMMENT 'Уникальный идентификатор пользователя'  PRIMARY KEY,
   doc_type_id       INTEGER      NOT NULL           COMMENT 'id типа документа',
   doc_number        VARCHAR(255) NOT NULL           COMMENT 'Номер документа',
   doc_date          DATE         NOT NULL           COMMENT 'Дата создания документа',
@@ -65,7 +65,6 @@ CREATE TABLE IF NOT EXISTS User (
   office_id         INTEGER      NOT NULL           COMMENT 'Уникальный идентификатор офиса',
   position          VARCHAR(255) NOT NULL           COMMENT 'Должность',
   phone             VARCHAR(20)  NOT NULL           COMMENT 'Телефон',
-  document_id       INTEGER      NOT NULL UNIQUE    COMMENT 'Уникальный идентификатор документа',
   citizenship_id    INTEGER      NOT NULL           COMMENT 'Уникальный идентификатор гражданства',
   is_identified     BOOLEAN      NOT NULL           COMMENT 'Идентифицирован',
   version           INTEGER      NOT NULL           COMMENT 'Служебное поле hibernate'
@@ -80,6 +79,6 @@ ALTER TABLE User ADD FOREIGN KEY (office_id) REFERENCES Office (id);
 CREATE INDEX IX_User_Citizenship_Id ON User (citizenship_id);
 ALTER TABLE User ADD FOREIGN KEY (citizenship_id) REFERENCES Citizenship (id);
 
--- Индекс и внешний ключ для связи User 1->1 Document
-CREATE INDEX IX_User_Document_Id ON User (document_id);
-ALTER TABLE User ADD FOREIGN KEY (document_id) REFERENCES Document (id);
+-- Индекс и внешний ключ для связи Document 1->1 User
+CREATE INDEX IX_Document_User_Id ON Document (user_id);
+ALTER TABLE Document ADD FOREIGN KEY (user_id) REFERENCES User (id);

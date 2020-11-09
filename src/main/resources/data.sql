@@ -277,21 +277,21 @@ INSERT INTO Office (id, org_id, name, address, phone, is_active, version) VALUES
 (1, 1, 'Main Office', 'Main Street 1-1', '87774445511', true, 0),
 (2, 1, 'Second Office', 'Second Street 1-2', '87774445522', true, 0);
 
+INSERT INTO User (first_name, middle_name, last_name, office_id, position, phone, citizenship_id, is_identified, version) VALUES
+-- Организация 1 офис Main
+('name1', 'middle1', 'last1', 1, 'Director', '87774445511 доб.(11)', 15, true, 0),
+('name2', NULL, 'last2', 1, 'Manager', '87774445511 доб.(22)', 25, true, 0),
+('name3', 'middle3', 'last3', 1, 'Manager', '87774445511 доб.(33)', 35, true, 0),
+-- Организация 1 офис Second
+('name4', 'middle4', 'last4', 2, 'Director', '87774445522 доб.(11)', 45, true, 0),
+('name5', NULL, 'last5', 2, 'Manager', '87774445522 доб.(22)', 55, false, 0),
+('name6', NULL, 'last6', 2, 'Programmer', '87774445522 доб.(33)', 65, true, 0);
+
 -- Создание документов
-INSERT INTO Document (id, doc_type_id, doc_number, doc_date, version) VALUES
+INSERT INTO Document (user_id, doc_type_id, doc_number, doc_date, version) VALUES
 (1, 1, 'ABC-1', '2020-01-01', 0),
 (2, 2, 'ABC-1', '2020-01-01', 0),
 (3, 1, 'ABC-2', '2020-01-01', 0),
 (4, 4, '08-123', '2020-01-01', 0),
 (5, 5, '10-222', '2020-01-01', 0),
 (6, 6, '11-123', '2020-01-01', 0);
-
-INSERT INTO User (first_name, middle_name, last_name, office_id, position, phone, document_id, citizenship_id, is_identified, version) VALUES
--- Организация 1 офис Main
-('name1', 'middle1', 'last1', 1, 'Director', '87774445511 доб.(11)', 1, 15, true, 0),
-('name2', NULL, 'last2', 1, 'Manager', '87774445511 доб.(22)', 2, 25, true, 0),
-('name3', 'middle3', 'last3', 1, 'Manager', '87774445511 доб.(33)', 3, 35, true, 0),
--- Организация 1 офис Second
-('name4', 'middle4', 'last4', 2, 'Director', '87774445522 доб.(11)', 4, 45, true, 0),
-('name5', NULL, 'last5', 2, 'Manager', '87774445522 доб.(22)', 5, 55, false, 0),
-('name6', NULL, 'last6', 2, 'Programmer', '87774445522 доб.(33)', 6, 65, true, 0);
