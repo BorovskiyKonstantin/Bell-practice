@@ -17,7 +17,7 @@ public class DocumentType {
     @Column(name = "doc_code", length = 3, nullable = false, unique = true)
     private String code;
 
-    @Column(name = "doc_name", nullable = false, unique = true)
+    @Column(name = "doc_name", length = 255, nullable = false, unique = true)
     private String name;
 
     public Integer getId() {

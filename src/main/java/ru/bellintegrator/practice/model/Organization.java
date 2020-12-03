@@ -14,19 +14,19 @@ public class Organization {
     @Column(name = "version", nullable = false)
     private Integer version;
 
-    @Column(name = "name", nullable = false, unique = true)
+    @Column(name = "name", length = 255, nullable = false, unique = true)
     private String name;
 
-    @Column(name = "full_name", nullable = false, unique = true)
+    @Column(name = "full_name", length = 255, nullable = false, unique = true)
     private String fullName;
 
-    @Column(name = "inn", nullable = false, unique = true)
+    @Column(name = "inn", length = 10, nullable = false, unique = true)
     private String inn;
 
-    @Column(name = "kpp", nullable = false, unique = true)
+    @Column(name = "kpp", length = 9, nullable = false, unique = true)
     private String kpp;
 
-    @Column(name = "address", nullable = false)
+    @Column(name = "address", length = 255, nullable = false)
     private String address;
 
     @Column(name = "phone", length = 20, nullable = false)

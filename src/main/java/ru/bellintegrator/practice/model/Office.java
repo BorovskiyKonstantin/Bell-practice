@@ -14,10 +14,10 @@ public class Office {
     @Column(name = "version", nullable = false)
     private Integer version;
 
-    @Column(name = "name", nullable = false)
+    @Column(name = "name", length = 255, nullable = false)
     private String name;
 
-    @Column(name = "address", nullable = false)
+    @Column(name = "address", length = 255, nullable = false)
     private String address;
 
     @Column(name = "phone", length = 20, nullable = false)

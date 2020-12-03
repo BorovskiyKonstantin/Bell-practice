@@ -14,16 +14,16 @@ public class User {
     @Column(name = "version", nullable = false)
     private Integer version;
 
-    @Column(name = "first_name", nullable = false)
+    @Column(name = "first_name", length = 255, nullable = false)
     private String firstName;
 
-    @Column(name = "middle_name")
+    @Column(name = "middle_name", length = 255)
     private String middleName;
 
-    @Column(name = "last_name", nullable = false)
+    @Column(name = "last_name", length = 255, nullable = false)
     private String lastName;
 
-    @Column(name = "position", nullable = false)
+    @Column(name = "position", length = 255, nullable = false)
     private String position;
 
     @Column(name = "phone", length = 20, nullable = false)
@@ -40,8 +40,8 @@ public class User {
     @JoinColumn(name = "office_id", nullable = false)
     private Office office;
 
-    @OneToOne(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL, optional = false)
-//    @JoinColumn(name = "document_id", nullable = false, unique = true)
+    @OneToOne(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn
     private Document document;
 
     public Integer getId() {

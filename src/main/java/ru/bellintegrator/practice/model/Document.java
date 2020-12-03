@@ -7,16 +7,14 @@ import java.time.LocalDate;
 @Table(name = "Document")
 public class Document {
     @Id
+    @Column(name = "user_id")
     private Integer id;
-    @OneToOne(fetch = FetchType.LAZY)
-    @MapsId
-    private User user;
 
     @Version
     @Column(name = "version", nullable = false)
     private Integer version;
 
-    @Column(name = "doc_number", nullable = false)
+    @Column(name = "doc_number", length = 255, nullable = false)
     private String number;
 
     @Column(name = "doc_date", nullable = false)
@@ -25,6 +23,11 @@ public class Document {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "doc_type_id", nullable = false)
     private DocumentType docType;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @MapsId
+    @JoinColumn(name = "user_id")
+    private User user;
 
     public Integer getId() {
         return id;

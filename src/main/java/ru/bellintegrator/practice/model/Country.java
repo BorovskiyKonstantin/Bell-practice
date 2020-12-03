@@ -17,7 +17,7 @@ public class Country {
     @Column(name = "citizenship_code", length = 3, nullable = false, unique = true)
     private String code;
 
-    @Column(name = "citizenship_name", nullable = false, unique = true)
+    @Column(name = "citizenship_name", length = 255, nullable = false, unique = true)
     private String name;
 
     public Integer getId() {
