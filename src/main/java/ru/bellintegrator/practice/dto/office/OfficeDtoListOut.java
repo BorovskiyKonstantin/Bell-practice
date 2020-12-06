@@ -1,11 +1,8 @@
 package ru.bellintegrator.practice.dto.office;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 public class OfficeDtoListOut {
     private Integer id;
     private String name;
-    @JsonProperty("isActive")
     private Boolean isActive;
 
     public Integer getId() {
@@ -24,11 +21,11 @@ public class OfficeDtoListOut {
         this.name = name;
     }
 
-    public Boolean getActive() {
+    public Boolean getIsActive() {
         return isActive;
     }
 
-    public void setActive(Boolean active) {
+    public void setIsActive(Boolean active) {
         isActive = active;
     }
 }

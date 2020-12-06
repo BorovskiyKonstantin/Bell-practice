@@ -1,14 +1,11 @@
 package ru.bellintegrator.practice.dto.organization;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 import javax.validation.constraints.NotNull;
 
 public class OrganizationDtoGetListIn {
     @NotNull
     private String name;
     private String inn;
-    @JsonProperty("isActive")
     private Boolean isActive;
 
     public String getName() {
@@ -27,11 +24,11 @@ public class OrganizationDtoGetListIn {
         this.inn = inn;
     }
 
-    public Boolean getActive() {
+    public Boolean getIsActive() {
         return isActive;
     }
 
-    public void setActive(Boolean active) {
+    public void setIsActive(Boolean active) {
         isActive = active;
     }
 }

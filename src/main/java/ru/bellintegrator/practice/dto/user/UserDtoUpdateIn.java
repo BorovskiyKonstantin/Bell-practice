@@ -107,11 +107,11 @@ public class UserDtoUpdateIn {
         this.citizenshipCode = citizenshipCode;
     }
 
-    public Boolean getIdentified() {
+    public Boolean getIsIdentified() {
         return isIdentified;
     }
 
-    public void setIdentified(Boolean identified) {
+    public void setIsIdentified(Boolean identified) {
         isIdentified = identified;
     }
 }

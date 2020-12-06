@@ -1,13 +1,10 @@
 package ru.bellintegrator.practice.dto.office;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 public class OfficeDtoGetByIdOut {
     private Integer id;
     private String name;
     private String address;
     private String phone;
-    @JsonProperty("isActive")
     private Boolean isActive;
 
     public OfficeDtoGetByIdOut(Integer id, String name, String address, String phone, Boolean isActive) {
@@ -50,11 +47,11 @@ public class OfficeDtoGetByIdOut {
         this.phone = phone;
     }
 
-    public Boolean getActive() {
+    public Boolean getIsActive() {
         return isActive;
     }
 
-    public void setActive(Boolean active) {
+    public void setIsActive(Boolean active) {
         isActive = active;
     }
 }

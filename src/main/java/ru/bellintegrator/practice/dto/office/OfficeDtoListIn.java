@@ -1,7 +1,5 @@
 package ru.bellintegrator.practice.dto.office;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 import javax.validation.constraints.NotNull;
 
 public class OfficeDtoListIn {
@@ -9,7 +7,6 @@ public class OfficeDtoListIn {
     private Integer orgId;
     private String name;
     private String phone;
-    @JsonProperty("isActive")
     private Boolean isActive;
 
     public Integer getOrgId() {
@@ -36,11 +33,11 @@ public class OfficeDtoListIn {
         this.phone = phone;
     }
 
-    public Boolean getActive() {
+    public Boolean getIsActive() {
         return isActive;
     }
 
-    public void setActive(Boolean active) {
+    public void setIsActive(Boolean active) {
         isActive = active;
     }
 }
