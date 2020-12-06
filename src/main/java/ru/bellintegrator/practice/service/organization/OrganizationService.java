@@ -1,6 +1,6 @@
 package ru.bellintegrator.practice.service.organization;
 
-import ru.bellintegrator.practice.dto.ApiResponse;
+import ru.bellintegrator.practice.dto.SuccessResponse;
 import ru.bellintegrator.practice.dto.organization.*;
 
 import java.util.List;
@@ -28,7 +28,7 @@ public interface OrganizationService {
      * @param dto
      * @return
      */
-    OrganizationDtoUpdateOut update(OrganizationDtoUpdateIn dto);
+    SuccessResponse update(OrganizationDtoUpdateIn dto);
 
     /**
      * Сохранить новую органиацию в БД
@@ -36,5 +36,5 @@ public interface OrganizationService {
      * @param dto
      * @return
      */
-    OrganizationDtoSaveOut save(OrganizationDtoSaveIn dto);
+    SuccessResponse save(OrganizationDtoSaveIn dto);
 }

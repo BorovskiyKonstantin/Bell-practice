@@ -1,11 +1,7 @@
-package ru.bellintegrator.practice.dto.office;
+package ru.bellintegrator.practice.dto;
 
-public class OfficeDtoSaveOut {
+public class SuccessResponse {
     private String result;
-
-    public OfficeDtoSaveOut(String result) {
-        this.result = result;
-    }
 
     public String getResult() {
         return result;

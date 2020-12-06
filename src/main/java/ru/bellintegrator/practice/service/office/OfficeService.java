@@ -1,5 +1,6 @@
 package ru.bellintegrator.practice.service.office;
 
+import ru.bellintegrator.practice.dto.SuccessResponse;
 import ru.bellintegrator.practice.dto.office.*;
 
 import java.util.List;
@@ -10,7 +11,7 @@ public interface OfficeService {
 
     OfficeDtoGetByIdOut findById(Integer id);
 
-    OfficeDtoUpdateOut update(OfficeDtoUpdateIn dto);
+    SuccessResponse update(OfficeDtoUpdateIn dto);
 
-    OfficeDtoSaveOut save(OfficeDtoSaveIn dto);
+    SuccessResponse save(OfficeDtoSaveIn dto);
 }

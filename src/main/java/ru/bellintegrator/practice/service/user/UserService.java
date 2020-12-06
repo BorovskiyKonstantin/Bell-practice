@@ -1,5 +1,6 @@
 package ru.bellintegrator.practice.service.user;
 
+import ru.bellintegrator.practice.dto.SuccessResponse;
 import ru.bellintegrator.practice.dto.user.*;
 
 import java.util.List;
@@ -9,7 +10,7 @@ public interface UserService {
 
     UserDtoGetByIdOut findById(Integer id);
 
-    UserDtoUpdateOut update(UserDtoUpdateIn dto);
+    SuccessResponse update(UserDtoUpdateIn dto);
 
-    UserDtoSaveOut save(UserDtoSaveIn dto);
+    SuccessResponse save(UserDtoSaveIn dto);
 }
