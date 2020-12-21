@@ -1,6 +1,9 @@
 package ru.bellintegrator.practice.dto.user;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
 
 public class UserDtoUpdateIn {
     @NotNull
@@ -15,7 +18,8 @@ public class UserDtoUpdateIn {
     private String phone;
     private String docName;
     private String docNumber;
-    private String docDate;
+    @JsonFormat(pattern="dd-MM-yyyy")
+    private LocalDate docDate;
     private String citizenshipCode;
     private Boolean isIdentified;
 
@@ -91,11 +95,11 @@ public class UserDtoUpdateIn {
         this.docNumber = docNumber;
     }
 
-    public String getDocDate() {
+    public LocalDate getDocDate() {
         return docDate;
     }
 
-    public void setDocDate(String docDate) {
+    public void setDocDate(LocalDate docDate) {
         this.docDate = docDate;
     }
 
